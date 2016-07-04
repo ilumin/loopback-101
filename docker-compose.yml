@@ -3,6 +3,7 @@ version: "2"
 services:
 
   node:
+    container_name: loopback-101-node
     image: bitnami/node
     command: "sh -c 'npm i && npm start'"
     ports:
@@ -12,15 +13,18 @@ services:
       - .:/app
 
   mysql:
+    container_name: loopback-101-mysql
     image: bitnami/mariadb
     ports:
       - 3306:3306
     environment:
-      - MARIADB_DATABASE:app
-      - MARIADB_USER:app
-      - MARIADB_PASSWORD:app
+      - MARIADB_DATABASE=app
+      - MARIADB_USER=app
+      - MARIADB_PASSWORD=app
+      - MARIADB_ROOT_PASSWORD=app
 
   mongo:
+    container_name: loopback-101-mongo
     image: bitnami/mongodb
     ports:
       - 27017:27017
