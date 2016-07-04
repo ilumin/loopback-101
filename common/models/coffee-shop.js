@@ -22,4 +22,17 @@ module.exports = function(CoffeeShop) {
     http: { path: '/status', verb: 'get' },
     returns: { arg: 'status', type: 'string' }
   });
+
+  CoffeeShop.getName = function(id, callback) {
+    CoffeeShop.findById(id, function(erro ,shop) {
+      response = shop.name;
+      callback(null, response);
+    });
+  };
+
+  CoffeeShop.remoteMethod('getName', {
+    http: { path: '/get-name', verb: 'get' },
+    accepts: { arg: 'id', type: 'number', http: { source: 'query' } },
+    returns: { arg: 'name', type: 'string' }
+  });
 };
