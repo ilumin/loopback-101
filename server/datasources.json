@@ -8,5 +8,15 @@
     "name": "mysqlDs",
     "user": "app",
     "connector": "mysql"
+  },
+  "mongoDs": {
+    "host": "loopback-101-mongo",
+    "port": 27017,
+    "url": "mongodb://app:app@loopback-101-mongo:27017/app",
+    "database": "app",
+    "password": "app",
+    "name": "mongoDs",
+    "user": "app",
+    "connector": "mongodb"
   }
 }
