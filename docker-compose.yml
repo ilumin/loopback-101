@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+
+  node:
+    image: bitnami/node
+    command: "sh -c 'npm i && npm start'"
+    ports:
+      - 80:80
+      - 3000:3000
+    volumes:
+      - .:/app
+
+  mysql:
+    image: bitnami/mariadb
+    ports:
+      - 3306:3306
+    environment:
+      - MARIADB_DATABASE:app
+      - MARIADB_USER:app
+      - MARIADB_PASSWORD:app
+
+  mongo:
+    image: bitnami/mongodb
+    ports:
+      - 27017:27017

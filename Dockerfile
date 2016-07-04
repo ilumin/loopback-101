@@ -1,10 +1,7 @@
 FROM node
 
-RUN mkdir -p /src \
-  && cd /src
-
-COPY .eslintignore .eslintrc .yo-rc.json package.json /src
+COPY .eslintignore .eslintrc .yo-rc.json package.json ./
 
 RUN npm i
 
-WORKDIR /src 
+WORKDIR /src
