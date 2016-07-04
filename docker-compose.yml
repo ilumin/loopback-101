@@ -28,3 +28,7 @@ services:
     image: bitnami/mongodb
     ports:
       - 27017:27017
+    environment:
+      - MONGODB_USER=app
+      - MONGODB_PASSWORD=app
+      - MONGODB_DATABASE=app
